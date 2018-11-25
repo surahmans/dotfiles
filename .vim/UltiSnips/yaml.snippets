@@ -1,0 +1,21 @@
+snippet cie "Config import export"
+# ===================================
+#  Import/Export Behavior Config
+# ===================================
+
+import:
+    title: Import $1s
+    modelClass: $2\Models\Import$3
+    list: $/$4/models/$5/columns.yaml
+
+export:
+    title: Export $1s
+    modelClass: $2\Models\Export$3
+    list: $/$4/models/$5/columns.yaml
+endsnippet
+
+snippet ff "Add form field"
+$1:
+	label: $2
+	span: ${3:auto}
+endsnippet

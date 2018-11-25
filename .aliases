@@ -1,0 +1,12 @@
+# Run mongodb
+alias monggo="mongod --config /usr/local/etc/mongod.conf"
+
+alias ctagsplugins='ctags -R --php-kinds=cif plugins'
+alias ctagsmodules='ctags -R --php-kinds=cif -f tags.modules modules'
+alias ctagsvendors='ctags -R --php-kinds=cif -f tags.vendors vendor'
+alias ctagsetup='ctagsplugins && ctagsmodules && ctagsvendors'
+alias art='php artisan'
+alias t='todolist'
+alias tm='tmux'
+alias gs='git stash'
+alias gsp='git stash pop'

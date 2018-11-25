@@ -1,0 +1,103 @@
+snippet pub
+public function $1($2)
+{
+	$0
+}
+endsnippet
+
+snippet pus
+public static function $1($2)
+{
+	$0
+}
+endsnippet
+
+snippet pro
+protected function $1($2)
+{
+	$0
+}
+endsnippet
+
+snippet pri
+private function $1($2)
+{
+	$0
+}
+endsnippet
+
+snippet compro "Define component properties"
+'$1' => [
+	'title'             => '$2',
+	'description'       => '$3',
+	'default'           => $4,
+	'type'              => '$5',
+	'validationPattern' => '$6',
+	'validationMessage' => '$0'
+]
+endsnippet
+
+snippet addcol "Add column migration"
+<?php namespace $1\Updates;
+
+use Schema;
+use October\Rain\Database\Schema\Blueprint;
+use October\Rain\Database\Updates\Migration;
+
+class Add$2Column${3:s}To$4Table extends Migration
+{
+    public function up()
+    {
+        Schema::table('$5', function(Blueprint $table) {
+			$table->${6:string}('$7')${0:->nullable()};
+        });
+    }
+
+    public function down()
+    {
+        Schema::table('$5', function(Blueprint $table) {
+            $table->dropColumn('$7');
+        });
+    }
+}
+endsnippet
+
+snippet exm "Create export model"
+<?php namespace $0;
+
+class $1Export extends \Backend\Models\ExportModel
+{
+    public function exportData($columns, $sessionKey = null)
+    {
+        $$2s = $1::all();
+        $$2s->each(function($$2) use ($columns) {
+            $$2->addVisible($columns);
+        });
+        return $$2s->toArray();
+    }
+}
+endsnippet
+
+snippet test "Create test method"
+/** @test */
+public function $1()
+{
+	$0
+}
+endsnippet
+
+snippet bh "Create behavior class"
+<?php namespace $1\Classes\Behaviors;
+class $2 extends \October\Rain\Extension\ExtensionBase
+{
+    protected $parent;
+
+    public function __construct($parent)
+    {
+        $this->parent = $parent;
+    }
+
+	$0
+
+}
+endsnippet

@@ -1,0 +1,92 @@
+snippet set
+{% set $1 = $2 %}
+endsnippet
+
+snippet bra
+{{ $1 }}
+endsnippet
+
+snippet brap
+{% $1 %}
+endsnippet
+
+snippet if
+{% if $1 %}
+	${0:${VISUAL:}}
+{% endif %}
+endsnippet
+
+snippet ie
+{% if $1 %}
+	${2:${VISUAL:}}
+{% else %}
+	$3
+{% endif %}
+endsnippet
+
+snippet for
+{% for $1 in $2 %}
+	${3:${VISUAL:}}
+{% endfor %}
+endsnippet
+
+snippet psc
+{% put scripts %}
+	${1:${VISUAL:}}
+{% endput %}
+endsnippet
+
+snippet pst
+{% put styles %}
+	${2:${VISUAL:}}
+{% endput %}
+endsnippet
+
+snippet part
+{% partial '$1' %}
+endsnippet
+
+
+#------ BACKEND CONTROLLER --------#
+
+snippet imv "Import view"
+<?= Form::open(['class' => 'layout']) ?>
+
+    <div class="layout-row">
+        <?= $this->importRender() ?>
+    </div>
+
+    <div class="form-buttons">
+        <button
+            type="submit"
+            data-control="popup"
+            data-handler="onImportLoadForm"
+            data-keyboard="false"
+            class="btn btn-primary">
+            Import records
+        </button>
+    </div>
+
+<?= Form::close() ?>
+endsnippet
+
+snippet exv "Export view"
+<?= Form::open(['class' => 'layout']) ?>
+
+    <div class="layout-row">
+        <?= $this->exportRender() ?>
+    </div>
+
+    <div class="form-buttons">
+        <button
+            type="submit"
+            data-control="popup"
+            data-handler="onExportLoadForm"
+            data-keyboard="false"
+            class="btn btn-primary">
+            Export records
+        </button>
+    </div>
+
+<?= Form::close() ?>
+endsnippet
