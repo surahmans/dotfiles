@@ -1,6 +1,7 @@
 set nocompatible                " choose no compatibility with legacy vi
 syntax on
 set background=dark
+set regexpengine=1              " fast cursor move issue on WSL
 colorscheme papercolor
 set encoding=utf-8
 set showcmd                     " display incomplete commands
